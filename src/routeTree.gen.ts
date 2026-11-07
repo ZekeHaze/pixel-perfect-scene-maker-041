@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EcotiendaRouteImport } from './routes/ecotienda'
+import { Route as EscuelaGranjeraRouteImport } from './routes/escuela-granjera'
+import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as NuestraFincaRouteImport } from './routes/nuestra-finca'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcotiendaRoute = EcotiendaRouteImport.update({
+  id: '/ecotienda',
+  path: '/ecotienda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscuelaGranjeraRoute = EscuelaGranjeraRouteImport.update({
+  id: '/escuela-granjera',
+  path: '/escuela-granjera',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriaRoute = GaleriaRouteImport.update({
+  id: '/galeria',
+  path: '/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NuestraFincaRoute = NuestraFincaRouteImport.update({
+  id: '/nuestra-finca',
+  path: '/nuestra-finca',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/ecotienda': typeof EcotiendaRoute
+  '/escuela-granjera': typeof EscuelaGranjeraRoute
+  '/galeria': typeof GaleriaRoute
+  '/nuestra-finca': typeof NuestraFincaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/ecotienda': typeof EcotiendaRoute
+  '/escuela-granjera': typeof EscuelaGranjeraRoute
+  '/galeria': typeof GaleriaRoute
+  '/nuestra-finca': typeof NuestraFincaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/ecotienda': typeof EcotiendaRoute
+  '/escuela-granjera': typeof EscuelaGranjeraRoute
+  '/galeria': typeof GaleriaRoute
+  '/nuestra-finca': typeof NuestraFincaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/ecotienda'
+    | '/escuela-granjera'
+    | '/galeria'
+    | '/nuestra-finca'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contacto'
+    | '/ecotienda'
+    | '/escuela-granjera'
+    | '/galeria'
+    | '/nuestra-finca'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/ecotienda'
+    | '/escuela-granjera'
+    | '/galeria'
+    | '/nuestra-finca'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  EcotiendaRoute: typeof EcotiendaRoute
+  EscuelaGranjeraRoute: typeof EscuelaGranjeraRoute
+  GaleriaRoute: typeof GaleriaRoute
+  NuestraFincaRoute: typeof NuestraFincaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecotienda': {
+      id: '/ecotienda'
+      path: '/ecotienda'
+      fullPath: '/ecotienda'
+      preLoaderRoute: typeof EcotiendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escuela-granjera': {
+      id: '/escuela-granjera'
+      path: '/escuela-granjera'
+      fullPath: '/escuela-granjera'
+      preLoaderRoute: typeof EscuelaGranjeraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeria': {
+      id: '/galeria'
+      path: '/galeria'
+      fullPath: '/galeria'
+      preLoaderRoute: typeof GaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nuestra-finca': {
+      id: '/nuestra-finca'
+      path: '/nuestra-finca'
+      fullPath: '/nuestra-finca'
+      preLoaderRoute: typeof NuestraFincaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  EcotiendaRoute: EcotiendaRoute,
+  EscuelaGranjeraRoute: EscuelaGranjeraRoute,
+  GaleriaRoute: GaleriaRoute,
+  NuestraFincaRoute: NuestraFincaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
