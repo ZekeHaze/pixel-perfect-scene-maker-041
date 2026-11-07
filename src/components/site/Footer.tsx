@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png.asset.json";
 import { NAV, SITE, whatsappLink } from "@/lib/site";
-import { SocialLinks } from "./icons";
+import { SocialLinks, WhatsAppIcon } from "./icons";
 
 export function Footer() {
   return (
@@ -43,11 +43,7 @@ export function WhatsAppFloat() {
       aria-label="Escríbenos por WhatsApp"
       className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-soft ring-4 ring-background/70 transition-transform hover:scale-110"
     >
-      <WhatsAppIconLazy />
+      <WhatsAppIcon className="h-7 w-7" />
     </a>
   );
-}
-import { WhatsAppIcon as WhatsAppIconLazy0 } from "./icons";
-function WhatsAppIconLazy() {
-  return <WhatsAppIconLazy0 className="h-7 w-7" />;
 }
